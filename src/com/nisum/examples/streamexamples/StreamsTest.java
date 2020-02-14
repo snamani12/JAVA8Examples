@@ -9,13 +9,13 @@ public class StreamsTest {
         //new StreamsTest().filterTest();
         //new StreamsTest().mapTest();
         //new StreamsTest().getNames();
-        new StreamsTest().getEmployee(888);
+        new StreamsTest().flatMapTest();
     }
 
     public Employee getEmployee(int id){
         List<Employee> employees = getEmployees();
-        Employee employee = employees.stream().filter(emp -> emp.getEmployeeId() == id).collect(O);
-        return employee;
+        List<Employee> employeeList = employees.stream().filter(emp -> emp.getEmployeeId() == id).collect(Collectors.toList());
+        return employeeList.get(0);
     }
 
     public void flatMapTest() {
